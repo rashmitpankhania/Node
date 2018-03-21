@@ -1,18 +1,31 @@
-function placeOrder(orderNumber) {
+function User() {
 	// body...
-	console.log('Customer number:', orderNumber);
-	createdAndDelivered(function () {
-		// body...
-		console.log('Order Placed:', orderNumber);
-	})
-
+	this.name = '';
+	this.life = 100;
+	this.giveLife = function giveLife(targetUser){
+		targetUser.life += 1;
+		console.log(this.name + ' gave 1 life to ' + targetUser.name);
+	}
 }
 
-function createdAndDelivered(callback) {
-	// body...
-	setTimeout(callback, 3000);
-}
+var Rash = new User();
+var Maddy = new User();
 
-placeOrder(1);
-placeOrder(2);
-placeOrder(3);
+Rash.name = 'Rashmit';
+Maddy.name = 'Madhu';
+
+Rash.giveLife(Maddy);
+
+console.log(Rash.life);
+console.log(Maddy.life);
+
+User.prototype.upperCut = function(targetUser) {
+	// body...
+	targetUser.life -= 3;
+	console.log(this.name + ' uppercutted ' + 'targetUser.name');
+};
+
+Maddy.upperCut(Rash);
+
+console.log(Rash.life);
+console.log(Maddy.life);
