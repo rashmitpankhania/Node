@@ -8,5 +8,5 @@ module.exports = {
 		console.log("this one is ok ok fine")
 	},
 
-	hell : console.log('good'),
+	favMovie : '',
 };

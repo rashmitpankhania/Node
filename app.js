@@ -1,3 +1,2 @@
-var movies = require('./movie');
-movies.printAvatar();
-movies.hell;
+require('./rash');
+require('./mad');
