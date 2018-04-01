@@ -1,11 +1,19 @@
+var connect = require('connect');
 var http = require('http');
 
-function onRequest(request, response){
-	console.log(`A user made a ${request.url}`);
-	response.writeHead(200, {'Content-type': 'text/plain'});
-	response.write('Here is some data');
-	response.end();
+var app = connect();
+
+function doFirst(request, response, next) {
+	console.log('bacon');
+	next();
 }
 
-http.createServer(onRequest).listen(8888);
-console.log('Server is running....')
+function doSecond(request, response, next) {
+	console.log('tuna');
+	next();
+}
+app.use(doFirst);
+app.use(doSecond);
+
+
+http.createServer(app).listen(1111);
